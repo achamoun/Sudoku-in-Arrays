@@ -12,54 +12,76 @@ package main;
 public class OneDimensionalArraySudokuEvaluator {
 
 	public boolean evaluateSudoku(int[] sudokuArray) {
-		if (evaluateRows(sudokuArray) && evaluateColoumns(sudokuArray) && evaluateBlocks(sudokuArray))
+
+		if (evaluateRows(buildRows(sudokuArray)) && evaluateColumns(buildColumns(sudokuArray))
+				&& evaluateBlocks(buildBlocks(sudokuArray)))
 			return true;
 		return false;
 	}
 
 	/**
-	 * this method builds the rows of the sudoku. each 9 array entries make a row of
-	 * the 9x9 sudoku.
+	 * this method builds the rows of the 9x9 sudoku.
 	 * 
 	 * @param sudokuArray
-	 * @return boolean
+	 * @return sudoku rows
 	 */
-	private boolean evaluateRows(int[] sudokuArray) {
+	private int[][] buildRows(int[] sudokuArray) {
 
-		int[] row = new int[9];
+		int[][] rows = new int[9][9];
+
 		for (int i = 0; i < sudokuArray.length; i++) {
-			int divisionResult = 0;
-
-			if (i / 9 == divisionResult) {
-				int index = i % 9;
-				row[index] = sudokuArray[i];
-				if (index == 8 && !evaluateColoumn(row)) {
-					return false;
-				}
-			}
-			divisionResult++;
+			rows[i / 9][i % 9] = sudokuArray[i];
 		}
 
+		return rows;
+
+	}
+
+	/**
+	 * this method builds the columns of the 9x9 sudoku.
+	 * 
+	 * @param sudokuArray
+	 * @return sudoku coloumns
+	 */
+	private int[][] buildColumns(int[] sudokuArray) {
+
+		int[][] columns = new int[9][9];
+
+		for (int i = 0; i < sudokuArray.length; i++) {
+			columns[i % 9][i / 9] = sudokuArray[i];
+		}
+
+		return columns;
+	}
+
+	private int[][] buildBlocks(int[] sudokuArray) {
+		return null;
+	}
+
+	private boolean evaluateRows(int[][] rows) {
+
+		for (int i = 0; i < rows.length; i++) {
+			if (!evaluateArray(rows[i]))
+				return false;
+		}
 		return true;
 	}
 
-	private boolean evaluateColoumns(int[] sudokuArray) {
+	private boolean evaluateColumns(int[][] columns) {
+
+		for (int i = 0; i < columns.length; i++) {
+			if (!evaluateArray(columns[i]))
+				return false;
+		}
+		return true;
+	}
+
+	private boolean evaluateBlocks(int[][] blocks) {
 		return false;
 	}
 
-	private boolean evaluateBlocks(int[] sudokuArray) {
-		return false;
-	}
-
-	private boolean evaluateRow(int[] row) {
-		return false;
-	}
-
-	private boolean evaluateColoumn(int[] coloumn) {
-		return false;
-	}
-
-	private boolean evaluateBlock(int[] block) {
+	private boolean evaluateArray(int[] is) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 }
