@@ -54,8 +54,21 @@ public class OneDimensionalArraySudokuEvaluator {
 		return columns;
 	}
 
+	/**
+	 * this method builds the 3x3 blocks of the sudoku
+	 * 
+	 * @param sudokuArray
+	 * @return
+	 */
 	private int[][] buildBlocks(int[] sudokuArray) {
-		return null;
+
+		int[][] blocks = new int[9][9];
+
+		for (int i = 0; i < sudokuArray.length; i++) {
+			blocks[((i % 9) / 3) + (((i / 9) / 3) * 3)][(i % 3) + (((i / 9) % 3) * 3)] = sudokuArray[i];
+		}
+
+		return blocks;
 	}
 
 	private boolean evaluateRows(int[][] rows) {
