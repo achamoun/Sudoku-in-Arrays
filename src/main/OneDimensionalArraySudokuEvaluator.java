@@ -25,7 +25,7 @@ public class OneDimensionalArraySudokuEvaluator {
 	 * @param sudokuArray
 	 * @return sudoku rows
 	 */
-	private int[][] buildRows(int[] sudokuArray) {
+	public int[][] buildRows(int[] sudokuArray) {
 
 		int[][] rows = new int[9][9];
 
@@ -43,7 +43,7 @@ public class OneDimensionalArraySudokuEvaluator {
 	 * @param sudokuArray
 	 * @return sudoku coloumns
 	 */
-	private int[][] buildColumns(int[] sudokuArray) {
+	public int[][] buildColumns(int[] sudokuArray) {
 
 		int[][] columns = new int[9][9];
 
@@ -60,7 +60,7 @@ public class OneDimensionalArraySudokuEvaluator {
 	 * @param sudokuArray
 	 * @return
 	 */
-	private int[][] buildBlocks(int[] sudokuArray) {
+	public int[][] buildBlocks(int[] sudokuArray) {
 
 		int[][] blocks = new int[9][9];
 
