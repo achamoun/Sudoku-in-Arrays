@@ -16,19 +16,63 @@ public class TwoDimensionalArraySudokuEvaluator {
 		return false;
 	}
 
-	public int[][] buildBlocks(int[][] sudokuArray) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public int[][] buildColumns(int[][] sudokuArray) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	/**
+	 * this method builds the rows of a 9x9 sudoku.
+	 * 
+	 * @param sudokuArray
+	 * @return
+	 */
 	public int[][] buildRows(int[][] sudokuArray) {
-		// TODO Auto-generated method stub
-		return null;
+
+		int[][] rows = new int[9][9];
+
+		for (int i = 0; i < sudokuArray.length; i++) {
+			for (int y = 0; y < sudokuArray.length; y++) {
+
+				rows[y][i] = sudokuArray[i][y];
+			}
+		}
+		return rows;
+	}
+
+	/**
+	 * the columns of the 9x9 sudoku are already respresnted in the parameter.
+	 * 
+	 * @param sudokuArray
+	 * @return
+	 */
+	public int[][] buildColumns(int[][] sudokuArray) {
+
+		int[][] columns = new int[9][9];
+
+		for (int i = 0; i < sudokuArray.length; i++) {
+			for (int y = 0; y < sudokuArray.length; y++) {
+
+				columns[i][y] = sudokuArray[i][y];
+			}
+		}
+
+		return columns;
+	}
+
+	/**
+	 * this method build the 3x3 blocks of the sudoku in arrays.
+	 * 
+	 * @param sudokuArray
+	 * @return
+	 */
+	public int[][] buildBlocks(int[][] sudokuArray) {
+
+		int[][] blocks = new int[9][9];
+
+		for (int i = 0; i < sudokuArray.length; i++) {
+			for (int y = 0; y < sudokuArray.length; y++) {
+
+				blocks[((y / 3) * 3) + (i / 3)][((y % 3) * 3) + (i % 3)] = sudokuArray[i][y];
+			}
+		}
+
+		return blocks;
 	}
 
 	private boolean evaluateRows(int[][] buildRows) {
