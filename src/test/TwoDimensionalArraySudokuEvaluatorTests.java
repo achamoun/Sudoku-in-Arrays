@@ -29,7 +29,7 @@ public class TwoDimensionalArraySudokuEvaluatorTests {
 			{ 8, 5, 2, 1, 3, 4, 7, 9, 6 }, { 9, 3, 5, 4, 7, 8, 2, 6, 1 }, { 1, 4, 6, 2, 9, 5, 8, 3, 7 },
 			{ 2, 8, 7, 3, 1, 6, 4, 5, 9 } };
 
-	int[][] sudokuFalseLine = { { 5, 6, 1, 8, 4, 7, 9, 2, 3 }, { 5, 7, 9, 5, 2, 1, 6, 8, 4 },
+	int[][] sudokuFalseRow = { { 5, 6, 1, 8, 4, 7, 9, 2, 3 }, { 5, 7, 9, 5, 2, 1, 6, 8, 4 },
 			{ 4, 2, 8, 9, 6, 3, 1, 7, 5 }, { 6, 1, 3, 7, 8, 9, 5, 4, 2 }, { 7, 9, 4, 6, 5, 2, 3, 1, 8 },
 			{ 8, 5, 2, 1, 3, 4, 7, 9, 6 }, { 9, 3, 5, 4, 7, 8, 2, 6, 1 }, { 1, 4, 6, 2, 9, 5, 8, 3, 7 },
 			{ 2, 8, 7, 3, 1, 6, 4, 5, 9 } };
@@ -44,7 +44,7 @@ public class TwoDimensionalArraySudokuEvaluatorTests {
 		assertTrue(validator.evaluateSudoku(sudokuTrue));
 		assertFalse(validator.evaluateSudoku(sudokuFalseBlock));
 		assertFalse(validator.evaluateSudoku(sudokuFalseColumn));
-		assertFalse(validator.evaluateSudoku(sudokuFalseLine));
+		assertFalse(validator.evaluateSudoku(sudokuFalseRow));
 
 	}
 
