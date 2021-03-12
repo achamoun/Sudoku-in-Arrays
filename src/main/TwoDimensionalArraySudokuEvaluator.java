@@ -2,11 +2,14 @@ package main;
 
 /**
  * 
- * @author aboud methods to evaluate a sudoku represented in two dimensional
- *         array. the sudoku is a 9x9 and the blocks are 3x3
+ * @author aboud
+ * 
+ *         methods to build the rows, columns and blocks of a sudoku represented
+ *         in a two dimensional array. the sudoku is a 9x9 and the blocks are
+ *         3x3
  * 
  */
-public class TwoDimensionalArraySudokuEvaluator {
+public class TwoDimensionalArraySudokuEvaluator extends SudokuEvaluator {
 
 	public boolean evaluateSudoku(int[][] sudokuArray) {
 
@@ -75,18 +78,4 @@ public class TwoDimensionalArraySudokuEvaluator {
 		return blocks;
 	}
 
-	private boolean evaluateRows(int[][] buildRows) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	private boolean evaluateBlocks(int[][] buildBlocks) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	private boolean evaluateColumns(int[][] buildColumns) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }
